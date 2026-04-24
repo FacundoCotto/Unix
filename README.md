@@ -244,6 +244,86 @@ ed hola.txt
 
 ---
 
+### `nano` — Editor de texto sencillo
+
+Editor de texto interactivo con una interfaz visual en la terminal. Es más amigable que `ed` o `vi` porque muestra los atajos disponibles en la parte inferior de la pantalla.
+
+**Ejemplo completo — Crear y escribir un archivo:**
+
+```
+nano notas.txt
+```
+
+**Paso a paso:**
+
+1. `nano notas.txt` abre (o crea) el archivo `notas.txt` directamente en modo edición.
+2. La pantalla se divide en dos partes: el área de texto arriba y los atajos disponibles abajo.
+3. Escribís el texto libremente, como si fuera un bloc de notas:
+   ```
+   Esta es mi primera nota en UNIX.
+   Hoy aprendí a usar nano.
+   ```
+4. Cuando terminás, presionás `Ctrl+O` → nano te pregunta el nombre del archivo, confirmás con Enter → **guarda** el archivo.
+5. Presionás `Ctrl+X` → **salís** del editor y volvés al shell.
+
+**Atajos útiles dentro de `nano`:**
+
+| Atajo    | Acción                     |
+| -------- | -------------------------- |
+| `Ctrl+O` | Guardar el archivo         |
+| `Ctrl+X` | Salir del editor           |
+| `Ctrl+K` | Cortar la línea actual     |
+| `Ctrl+U` | Pegar la línea cortada     |
+| `Ctrl+W` | Buscar texto en el archivo |
+| `Ctrl+G` | Mostrar la ayuda completa  |
+
+---
+
+### `vi` — Editor de texto avanzado
+
+Editor de texto potente y presente en prácticamente cualquier sistema UNIX. Funciona con dos modos bien diferenciados: **modo normal** (para navegar y ejecutar comandos) y **modo inserción** (para escribir texto).
+
+**Ejemplo completo — Crear y escribir un archivo:**
+
+```
+vi apuntes.txt
+```
+
+**Paso a paso:**
+
+1. `vi apuntes.txt` abre (o crea) el archivo `apuntes.txt`. Al entrar, estás en **modo normal**: no podés escribir texto todavía.
+2. Presionás `i` → entrás al **modo inserción** (en la parte inferior aparece `-- INSERT --`).
+3. Escribís el texto que quieras:
+   ```
+   Apuntes de UNIX
+   Comando vi: editor avanzado
+   ```
+4. Presionás `Esc` → salís del modo inserción y volvés al **modo normal**.
+5. Escribís `:w` y presionás Enter → **guarda** el archivo.
+6. Escribís `:q` y presionás Enter → **salís** del editor.
+7. También podés combinar ambos: `:wq` + Enter → guarda y sale en un solo paso.
+
+**Comandos útiles en modo normal:**
+
+| Comando    | Acción                                      |
+| ---------- | ------------------------------------------- |
+| `i`        | Entrar al modo inserción antes del cursor   |
+| `a`        | Entrar al modo inserción después del cursor |
+| `Esc`      | Volver al modo normal                       |
+| `dd`       | Eliminar (cortar) la línea actual           |
+| `yy`       | Copiar la línea actual                      |
+| `p`        | Pegar después del cursor                    |
+| `u`        | Deshacer el último cambio                   |
+| `/palabra` | Buscar `palabra` en el archivo              |
+| `:w`       | Guardar el archivo                          |
+| `:q`       | Salir (solo si no hay cambios sin guardar)  |
+| `:wq`      | Guardar y salir                             |
+| `:q!`      | Salir sin guardar (descartar cambios)       |
+
+> **Tip:** Si te quedás "atrapado" en `vi` sin saber cómo salir, presioná `Esc` y luego escribí `:q!` + Enter para salir sin guardar.
+
+---
+
 ### `pr` — Preparar archivos para imprimir
 
 Prepara archivos para su impresión, añadiendo encabezados y paginación (típicamente de 66 líneas por página), y permite organizar la salida en columnas.
